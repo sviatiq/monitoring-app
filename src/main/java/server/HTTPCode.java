@@ -1,16 +1,20 @@
 package server;
 
-import java.util.ArrayList;
-import java.util.List;
+import client.Client;
 
-public class HTTPCode {
+import java.util.*;
 
-    private static final List<Integer> classStatement = new ArrayList<Integer>();
-    private List<Integer> codeStatement;
+public class HTTPCode extends Client {
 
-    public static void main(String[] args) {
+  private List<Integer> codeStatement = new ArrayList<>();
 
-    }
+
+  static List creatingHTTPCodeResponse(List codeStatement){
+      codeStatement.add(200); //success case
+      codeStatement.add(400); //error case
+      return codeStatement;
+  }
+
 
 
 }

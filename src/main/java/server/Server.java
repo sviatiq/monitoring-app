@@ -12,7 +12,7 @@ public class Server {
     private static final String HTTP = "https://";
     private static URLStatus status;
 
-    //TODO На основе информации от клиента сделать проверку 
+    //TODO На основе информации от клиента сделать проверку
     public static Client buildClient(){
         Client client = new Client();
         client.setURL("localhost/1234");
@@ -33,8 +33,8 @@ public class Server {
         return status;
     }
 
-    private static void checkHTTPCode(Client client) {
-       // if(client.getHTTPResponseCode())
+    private static void checkHTTPCode() {
+       if(buildClient().)
 
 
     }
@@ -42,8 +42,7 @@ public class Server {
 
     public static void main(String[] args) {
 
-        Client client = new Client(HTTP + "localhost.com/1223");
-        System.out.println(client.getURL());
+        System.out.println(HTTP+buildClient().getURL());
         System.out.println("Your status: "+checkNumConnections());
 
     }

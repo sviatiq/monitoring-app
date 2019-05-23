@@ -1,7 +1,11 @@
 package client;
 
 
+import server.HTTPCode;
+
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client {
 
@@ -9,7 +13,9 @@ public class Client {
     private int connectionNum;
     private LocalTime timeResponse;
     private int responseSize;
-    private int HTTPResponseCode;
+    protected HTTPCode httpResponseCode;
+    private List httpResponse;
+
 
     public Client() {
     }
@@ -32,12 +38,24 @@ public class Client {
         this.responseSize = responseSize;
     }
 
-    public int getHTTPResponseCode() {
-        return HTTPResponseCode;
+    public int getConnectionNum() {
+        return connectionNum;
     }
 
-    public void setHTTPResponseCode(int HTTPResponseCode) {
-        this.HTTPResponseCode = HTTPResponseCode;
+    public void setConnectionNum(int connectionNum) {
+        this.connectionNum = connectionNum;
+    }
+
+    public HTTPCode getHTTPResponseCode() {
+        return httpResponseCode;
+    }
+
+    public void setHTTPResponseCode(HTTPCode httpResponseCode) {
+        if(httpResponseCode == null){
+            httpResponse = new ArrayList(2);
+        }
+        httpResponse.add(httpResponseCode);
+
     }
 
     public String getURL() {
