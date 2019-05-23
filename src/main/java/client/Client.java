@@ -20,6 +20,10 @@ public class Client {
     public Client() {
     }
 
+    public Client(int connectionNum) {
+        this.connectionNum = connectionNum;
+    }
+
     public Client(String URL) {
         this.URL = URL;
     }
@@ -50,11 +54,8 @@ public class Client {
         return httpResponseCode;
     }
 
-    public void setHTTPResponseCode(HTTPCode httpResponseCode) {
-        if(httpResponseCode == null){
-            httpResponse = new ArrayList(2);
-        }
-        httpResponse.add(httpResponseCode);
+    public void setHTTPResponseCode(int httpResponseCode) {
+
 
     }
 
@@ -82,6 +83,15 @@ public class Client {
         this.timeResponse = timeResponse;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Client{" +
+                "URL='" + URL + '\'' +
+                ", connectionNum=" + connectionNum +
+                ", timeResponse=" + timeResponse +
+                ", responseSize=" + responseSize +
+                ", httpResponseCode=" + httpResponseCode +
+                ", httpResponse=" + httpResponse +
+                '}';
+    }
 }
