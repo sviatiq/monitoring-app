@@ -2,7 +2,6 @@ package server;
 
 import client.Client;
 
-import java.util.*;
 
 public class HTTPCode extends Client {
 

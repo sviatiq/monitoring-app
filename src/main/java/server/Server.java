@@ -1,19 +1,16 @@
 package server;
 
-
 import client.Client;
-
 import java.time.LocalTime;
 
 
 public class Server {
 
-    //TODO Socket and info from Client
+    //TODO refactoring: Socket and info from Client
     private static final String HTTP = "https://";
-    private static URLStatus status;
-   // private static HTTPCode httpCode;
+    public static URLStatus status;
 
-    //TODO На основе информации от клиента сделать проверку
+    //TODO make a check based on Client's info
     public static Client buildClient(){
         Client client = new Client();
         client.setURL("localhost/1234");
@@ -22,7 +19,6 @@ public class Server {
         HTTPCode httpCode = new HTTPCode();
         return client;
     }
-
 
     private static URLStatus checkNumConnections() {
         if(buildClient().getConnectCounts()>25){
@@ -39,6 +35,7 @@ public class Server {
       if(buildClient().getConnectCounts()>=1){
           buildClient().setHTTPResponseCode(201);
           status = URLStatus.OK;
+          //TODO LineCode for HTTP
       }else if(buildClient().getConnectCounts()<1){
           buildClient().setHTTPResponseCode(401);
           status = URLStatus.CRITICAL;
@@ -47,7 +44,6 @@ public class Server {
       }
     return status;
     }
-
 
     public static void main(String[] args) {
 
