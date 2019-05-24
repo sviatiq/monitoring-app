@@ -1,18 +1,16 @@
 package client;
 
-import server.HTTPCode;
+import server.URLStatus;
+
 import java.time.LocalTime;
-import java.util.List;
 
 public class Client {
 
     private String URL;
     private int connectionNum;
+    private URLStatus status;
     private LocalTime timeResponse;
     private int responseSize;
-    protected HTTPCode httpResponseCode;
-    private List httpResponse;
-
 
     public Client() {
     }
@@ -31,12 +29,20 @@ public class Client {
         this.timeResponse = timeResponse;
     }
 
-    public int getResponseSize() {
-        return responseSize;
+    public String getURL() {
+        return URL;
     }
 
-    public void setResponseSize(int responseSize) {
-        this.responseSize = responseSize;
+    public URLStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(URLStatus status) {
+        this.status = status;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
     }
 
     public int getConnectionNum() {
@@ -44,31 +50,6 @@ public class Client {
     }
 
     public void setConnectionNum(int connectionNum) {
-        this.connectionNum = connectionNum;
-    }
-
-    public HTTPCode getHTTPResponseCode() {
-        return httpResponseCode;
-    }
-
-    public void setHTTPResponseCode(int httpResponseCode) {
-
-
-    }
-
-    public String getURL() {
-        return URL;
-    }
-
-    public void setURL(String URL) {
-        this.URL = URL;
-    }
-
-    public int getConnectCounts() {
-        return connectionNum;
-    }
-
-    public void setConnectCounts(int connectionNum) {
         this.connectionNum = connectionNum;
     }
 
@@ -80,6 +61,14 @@ public class Client {
         this.timeResponse = timeResponse;
     }
 
+    public int getResponseSize() {
+        return responseSize;
+    }
+
+    public void setResponseSize(int responseSize) {
+        this.responseSize = responseSize;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -87,8 +76,6 @@ public class Client {
                 ", connectionNum=" + connectionNum +
                 ", timeResponse=" + timeResponse +
                 ", responseSize=" + responseSize +
-                ", httpResponseCode=" + httpResponseCode +
-                ", httpResponse=" + httpResponse +
                 '}';
     }
 }

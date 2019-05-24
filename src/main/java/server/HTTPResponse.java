@@ -3,14 +3,15 @@ package server;
 import client.Client;
 
 
-public class HTTPCode extends Client {
+public class HTTPResponse extends Client {
 
     private String httpLine;
     private int httpCode;
+    private int responseSize;
 
-    public HTTPCode(){};
+    public HTTPResponse(){};
 
-    public HTTPCode(int httpCode){
+    public HTTPResponse(int httpCode){
         this.httpCode = httpCode;
 
     }
@@ -33,7 +34,7 @@ public class HTTPCode extends Client {
 
     @Override
     public String toString() {
-        return "HTTPCode{" +
+        return "HTTPResponse{" +
                 "httpLine='" + httpLine + '\'' +
                 ", httpCode=" + httpCode +
                 '}';

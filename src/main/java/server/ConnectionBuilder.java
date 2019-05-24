@@ -1,16 +1,8 @@
 package server;
 
-import DB.Config;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class ConnectionBuilder {
 
-    public static java.sql.Connection getConnection() throws SQLException {
-        java.sql.Connection connection = DriverManager.getConnection(Config.getProperty(Config.DB_URL),
-                Config.getProperty(Config.DB_LOGIN), Config.getProperty(Config.DB_PASSWORD));
-        return connection;
-    }
+
+
 }
