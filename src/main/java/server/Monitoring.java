@@ -16,32 +16,31 @@ public class Monitoring extends Server {
                "            monitoring_period, response_code, response_line, response_size)" +
                "    VALUES (?, ?, ?, ?);";
 
-    private Connection getConnection() throws SQLException {
-        Connection connection = DriverManager.getConnection(
-                Config.getProperty(Config.DB_URL),
-                Config.getProperty(Config.DB_LOGIN),
-                Config.getProperty(Config.DB_PASSWORD));
-        return connection;
-    }
+        private Connection getConnection() throws SQLException {
+            return ConnectionBuilder.getConnection();
+        }
 
-        public Long saveInformation(Client client){
-        Long result = -1L;
-                try(Connection connection = getConnection();
+        public void saveInformation(Client client){
+            try(Connection connection = getConnection();
                     PreparedStatement statement = connection.prepareStatement(MONITORING, new String[]{"site_id"})){
 
-              statement.setString(2, client.getURL());
-//              statement.setObject(3, );
-//              statement.executeUpdate();
+                statement.setString(1, checkURL(buildClient()));
+                statement.setString(2, checkNumConnections(buildClient()).toString());
 
-                    ResultSet rs = statement.executeQuery();
-                    while(rs.next()){
-
-                    }
-
-
+                statement.executeUpdate();
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }
-                return result;
+        }
+
+        public void saveDescription(){
+            try(Connection connection = getConnection();
+                PreparedStatement statement = connection.prepareStatement(ADD_INFO)){
+
+
+
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
         }
 }

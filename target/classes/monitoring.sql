@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS monitoring;
 
 CREATE TABLE monitoring(
 
-                           site_id integer not null,
+                           site_id SERIAL,
                            site_url varchar(30) not null,
                            site_status varchar(8) not null,
                            PRIMARY KEY(site_id)
