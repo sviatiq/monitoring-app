@@ -5,7 +5,7 @@ CREATE TABLE monitoring(
 
       site_id SERIAL,
       site_url varchar(30) not null,
-      site_status varchar(8) not null,
+      site_status varchar not null,
       PRIMARY KEY(site_id)
 );
 

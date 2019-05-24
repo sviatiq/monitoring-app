@@ -1,12 +1,12 @@
 package server;
 
 
-import DB.Config;
+import DB.ConnectionBuilder;
 import client.Client;
 
 import java.sql.*;
 
-public class Monitoring extends Server {
+public class Monitoring extends SaveClientsInfo {
 
         private static final String MONITORING = "INSERT INTO monitoring(" +
                 "            site_url, site_status)" +

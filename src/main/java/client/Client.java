@@ -12,23 +12,12 @@ public class Client {
     private LocalTime timeResponse;
     private int responseSize;
 
-    public Client() {
-    }
-
-    public String getURL() {
-        return URL;
-    }
-
     public URLStatus getStatus() {
         return status;
     }
 
     public void setStatus(URLStatus status) {
         this.status = status;
-    }
-
-    public void setURL(String URL) {
-        this.URL = URL;
     }
 
     public int getConnectionNum() {
@@ -60,10 +49,23 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "URL='" + URL + '\'' +
                 ", connectionNum=" + connectionNum +
                 ", timeResponse=" + timeResponse +
                 ", responseSize=" + responseSize +
                 '}';
     }
+
+    public Client() {
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
+
+
 }
