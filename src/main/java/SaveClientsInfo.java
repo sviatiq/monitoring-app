@@ -8,13 +8,12 @@ import static server.Server.*;
 public class SaveClientsInfo {
 
     public static void main(String[] args) {
-        buildClient();
-        SaveClientsInfo sci = new SaveClientsInfo();
-        System.out.println("Your URL: "+ checkURL(buildClient()));
-        System.out.println("HTTP response: "+ checkHTTPCode(new HTTPResponse()));
+        System.out.println("Your URL: "+ checkURL(buildClient())); //for self control
+        System.out.println("HTTP response: "+ checkHTTPRepsonse(new HTTPResponse())); //for self control
 
         Monitoring m = new Monitoring();
         m.saveInformation(buildClient());
+        m.saveDescription();
     }
 
 

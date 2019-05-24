@@ -10,7 +10,7 @@ CREATE TABLE monitoring(
 );
 
 CREATE TABLE description(
-                            site_id integer not null,
+                            site_id SERIAL,
                             monitoring_period time not null,
                             response_code char(3) not null,
                             response_line varchar(30) not null,

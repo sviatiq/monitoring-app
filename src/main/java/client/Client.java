@@ -15,20 +15,6 @@ public class Client {
     public Client() {
     }
 
-    public Client(int connectionNum) {
-        this.connectionNum = connectionNum;
-    }
-
-    public Client(String URL) {
-        this.URL = URL;
-    }
-
-    public Client(String URL, int connectionNum, LocalTime timeResponse) {
-        this.URL = URL;
-        this.connectionNum = connectionNum;
-        this.timeResponse = timeResponse;
-    }
-
     public String getURL() {
         return URL;
     }
@@ -61,10 +47,12 @@ public class Client {
         this.timeResponse = timeResponse;
     }
 
+    //TODO question about size
     public int getResponseSize() {
         return responseSize;
     }
 
+    //TODO question about size
     public void setResponseSize(int responseSize) {
         this.responseSize = responseSize;
     }

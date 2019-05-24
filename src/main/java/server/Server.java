@@ -20,17 +20,18 @@ public class Server {
         return url;
     }
 
-    public static String checkHTTPCode (HTTPResponse http) {
-        if (buildClient().getURL().equals("localhost/1234")) {
+    //TODO: add http.setHttpCode
+    public static String checkHTTPRepsonse (HTTPResponse http) {
+        if (buildClient().getURL().equals("localhost/1234")) { //must be for any address
             http.setHttpCode(201);
-            http.setHttpLine("Successful!");
-            System.out.println("Your Status: " + checkNumConnections(buildClient()));
+            http.setHttpLine("Successful!"); //optional, depends on what code will be
+        return http.getHttpLine();
         }else{
-            System.out.println(checkURL(buildClient()));
+            System.out.println(checkURL(buildClient())); //for self control
             http.setHttpCode(404);
             http.setHttpLine("NOT FOUND!");
+        return http.getHttpLine();
         }
-        return http.getHttpCode() + " " + http.getHttpLine();
     }
 
     public static Object checkNumConnections(Client client) {
